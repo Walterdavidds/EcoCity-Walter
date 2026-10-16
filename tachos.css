@@ -1,0 +1,223 @@
+
+/* Diseño general de EcoCity */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f0f9f0;
+    color: #184b35;
+}
+
+/* Encabezados */
+h1 {
+    background: #12643f;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin: 0;
+    font-size: 40px;
+}
+
+/* Títulos secundarios */
+h2 {
+    color: #167348;
+    text-align: center;
+    margin-top: 35px;
+    font-size: 28px;
+}
+
+/* Párrafos */
+p {
+    font-size: 18px;
+    line-height: 1.7;
+    text-align: center;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+
+/* Contenedor de los cuatro tachos */
+.contenedor-tachos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1250px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* Diseño de cada tarjeta */
+.tacho {
+    background: white;
+    border-radius: 18px;
+    padding: 25px 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Animación al pasar el mouse */
+.tacho:hover {
+    transform: translateY(-10px);
+}
+
+/* Nombre del tacho */
+.tacho h3 {
+    color: #12643f;
+    font-size: 23px;
+}
+
+/* Tipo de residuo */
+.tacho h4 {
+    color: #4a8b55;
+    font-size: 18px;
+}
+
+/* Explicación */
+.tacho p {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Adaptación a pantallas pequeñas */
+@media (max-width: 900px) {
+    .contenedor-tachos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .contenedor-tachos {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Igualar el tamaño de las imágenes */
+.tacho img {
+    width: 150px;
+    height: 160px;
+    object-fit: contain;
+    display: block;
+    margin: 15px auto;
+}
+
+/* Alinear el contenido de las tarjetas */
+.tacho {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Mantener los títulos alineados */
+.tacho h3 {
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 0;
+}
+
+/* Sección educativa de EcoCity */
+.nota-educativa {
+    background: #dff3e3;
+    border-left: 6px solid #16834a;
+    border-radius: 15px;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Título de la sección */
+.nota-educativa h2 {
+    color: #12643f;
+    font-size: 25px;
+    margin: 10px 0;
+}
+
+/* Texto informativo */
+.nota-educativa p {
+    color: #24543b;
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 15px auto;
+}
+
+/* Sección del minijuego */
+.juego-reciclaje {
+    background: #e3f5e7;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Título del juego */
+.juego-reciclaje h2 {
+    color: #12643f;
+    font-size: 28px;
+}
+
+/* Contenedor de la pregunta */
+.pregunta-juego {
+    background: white;
+    padding: 25px;
+    margin-top: 25px;
+    border-radius: 15px;
+}
+
+/* Pregunta */
+.pregunta-juego h3 {
+    color: #12643f;
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+/* Botones de respuesta */
+.pregunta-juego button {
+    background: #16834a;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Animación de los botones */
+.pregunta-juego button:hover {
+    background: #0d5c32;
+    transform: scale(1.05);
+}
+
+/* Barra de progreso del juego */
+.barra-progreso {
+    width: 80%;
+    height: 18px;
+    background-color: #d8e8dc;
+    border-radius: 20px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+#progreso {
+    width: 0%;
+    height: 100%;
+    background-color: #20a464;
+    border-radius: 20px;
+    transition: width 0.5s ease;
+}
+
+/* Animación de los botones */
+#opciones button {
+    transition: transform 0.2s ease;
+}
+
+#opciones button:hover:not(:disabled) {
+    transform: scale(1.05);
+}

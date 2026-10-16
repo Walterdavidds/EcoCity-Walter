@@ -1,0 +1,310 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoCity - Tachos de basura</title>
+    <link rel="stylesheet" href="tachos.css">
+</head>
+<body>
+
+    <h1>🌿 EcoCity</h1>
+
+    <h2>Aprende a clasificar tus residuos</h2>
+
+    <p>
+        Bienvenido a EcoCity. Aquí aprenderás
+        cómo separar correctamente los residuos
+        y ayudar a cuidar el medio ambiente.
+    </p>
+
+    <h2>♻️ Tachos de basura</h2>
+
+    <p>
+        Conoce los diferentes tipos de tachos
+        y descubre cómo utilizarlos correctamente.
+    </p>
+
+<section class="contenedor-tachos">
+
+    <div class="tacho">
+        <h3>🟢 Tacho verde</h3>
+        <img src="imagenes/tacho-verde.webp" alt="Tacho verde de reciclaje" width="150">
+        <h4>Residuos aprovechables</h4>
+        <p>
+    En este tacho se depositan residuos
+    que pueden reciclarse o reutilizarse,
+    como botellas de plástico, papel,
+    cartón, vidrio y latas limpias.
+    Estos materiales pueden aprovecharse
+    para fabricar nuevos productos.
+        </p>
+    </div>
+
+    <div class="tacho">
+        <h3>🔵 Tacho azul</h3>
+        <img src="imagenes/tacho-azul.jpg" alt="Tacho azul de reciclaje" width="150">
+        <h4>Papel y cartón reciclables</h4>
+        <p>
+    En este tacho se depositan hojas de papel,
+    periódicos, revistas, cuadernos usados
+    y cajas de cartón limpias y secas.
+    Estos materiales pueden reciclarse
+    para elaborar nuevos productos de papel,
+    ayudando a reducir la cantidad de basura.
+        </p>
+    </div>
+
+    <div class="tacho">
+        <h3>🟡 Tacho amarillo</h3>
+        <img src="imagenes/tacho-amarillo.jpg" alt="Tacho amarillo de reciclaje" width="150">
+        <h4>Plásticos reciclables</h4>
+        <p>
+    En este tacho se depositan botellas
+    de plástico, envases de bebidas,
+    recipientes y otros plásticos
+    reciclables, limpios y vacíos.
+    Separar estos materiales permite
+    aprovecharlos para fabricar nuevos
+    productos y reducir la contaminación
+    del medio ambiente.
+        </p>
+    </div>
+
+    <div class="tacho">
+        <h3>⚫ Tacho gris</h3>
+        <img src="imagenes/tacho-gris.jpg" alt="Tacho gris de reciclaje" width="150">
+        <h4>Vidrio reciclable</h4>
+        <p>
+    En este tacho se depositan botellas
+    y frascos de vidrio vacíos y limpios.
+    Estos materiales pueden reciclarse
+    para fabricar nuevos envases y reducir
+    la contaminación ambiental.
+    No se deben colocar espejos, cerámicas
+    ni vidrios rotos que puedan causar
+    accidentes.
+        </p>
+    </div>
+
+</section>
+
+<section class="nota-educativa">
+    <h2>🌎 ¡Aprendamos a reciclar correctamente!</h2>
+
+    <p>
+        En EcoCity utilizamos una clasificación
+        educativa por materiales para aprender
+        a separar los residuos reciclables.
+        Los colores mostrados son ilustrativos.
+        En el Perú, la clasificación municipal
+        oficial establece colores diferentes
+        según la NTP 900.058:2019.
+    </p>
+</section>
+
+<section class="juego-reciclaje">
+
+    <h2>🎮 ¡Pon a prueba tus conocimientos!</h2>
+
+    <p>
+        ¿Sabes dónde colocar cada residuo?
+        Participa en nuestro juego educativo
+        y demuestra cuánto sabes sobre reciclaje.
+    </p>
+
+    
+<div class="pregunta-juego">
+
+    <h3 id="pregunta">
+        ♻️ ¿En qué tacho colocarías una botella de plástico?
+    </h3>
+
+    <p id="numero-pregunta">Pregunta 1 de 5</p>
+    
+<div class="barra-progreso">
+    <div id="progreso"></div>
+</div>
+
+    <div id="opciones">
+        <button type="button" onclick="verificarRespuesta('verde')">
+            🟢 Tacho verde
+        </button>
+
+        <button type="button" onclick="verificarRespuesta('azul')">
+            🔵 Tacho azul
+        </button>
+
+        <button type="button" onclick="verificarRespuesta('amarillo')">
+            🟡 Tacho amarillo
+        </button>
+
+        <button type="button" onclick="verificarRespuesta('gris')">
+            ⚫ Tacho gris
+        </button>
+    </div>
+
+    <p id="resultado-juego" aria-live="polite"></p>
+
+    <p id="puntuacion">⭐ Puntos: 0</p>
+
+    <button id="siguiente" type="button"
+            onclick="siguientePregunta()"
+            style="display:none;">
+        Siguiente pregunta ➡️
+    </button>
+
+    <button id="reiniciar" type="button"
+            onclick="reiniciarJuego()"
+            style="display:none;">
+        🔄 Volver a jugar
+    </button>
+
+</div>
+
+
+<script>
+const preguntas = [
+    {
+        texto: "♻️ ¿En qué tacho colocarías una botella de plástico?",
+        correcta: "amarillo"
+    },
+    {
+        texto: "📄 ¿En qué tacho colocarías un periódico usado?",
+        correcta: "azul"
+    },
+    {
+        texto: "🍾 ¿En qué tacho colocarías una botella de vidrio?",
+        correcta: "gris"
+    },
+    {
+        texto: "📦 ¿En qué tacho colocarías una caja de cartón limpia?",
+        correcta: "azul"
+    },
+    {
+        texto: "🥤 ¿En qué tacho colocarías un envase de plástico limpio?",
+        correcta: "amarillo"
+    }
+];
+
+let preguntaActual = 0;
+let puntos = 0;
+let respondida = false;
+
+function verificarRespuesta(respuesta) {
+    if (respondida) return;
+
+    respondida = true;
+
+    const resultado = document.getElementById("resultado-juego");
+    const correcta = preguntas[preguntaActual].correcta;
+
+    if (respuesta === correcta) {
+        puntos++;
+        resultado.textContent = "✅ ¡Correcto! Muy bien hecho.";
+        resultado.style.color = "green";
+    } else {
+        resultado.textContent =
+            "❌ ¡Incorrecto! La respuesta correcta es el tacho " + correcta + ".";
+        resultado.style.color = "red";
+    }
+
+    document.getElementById("puntuacion").textContent =
+        "⭐ Puntos: " + puntos;
+
+    document.querySelectorAll("#opciones button").forEach(boton => {
+        boton.disabled = true;
+    });
+
+    document.getElementById("siguiente").style.display = "inline-block";
+}
+
+function siguientePregunta() {
+    preguntaActual++;
+    
+document.getElementById("progreso").style.width =
+    (preguntaActual / preguntas.length * 100) + "%";
+
+    if (preguntaActual >= preguntas.length) {
+        finalizarJuego();
+        return;
+    }
+
+    respondida = false;
+
+    document.getElementById("pregunta").textContent =
+        preguntas[preguntaActual].texto;
+
+    document.getElementById("numero-pregunta").textContent =
+        "Pregunta " + (preguntaActual + 1) + " de " + preguntas.length;
+
+    document.getElementById("resultado-juego").textContent = "";
+
+    document.querySelectorAll("#opciones button").forEach(boton => {
+        boton.disabled = false;
+    });
+
+    document.getElementById("siguiente").style.display = "none";
+}
+
+function finalizarJuego() {
+    
+document.getElementById("progreso").style.width = "100%";
+
+    document.getElementById("pregunta").textContent =
+        "🏆 ¡Juego terminado!";
+
+    document.getElementById("numero-pregunta").textContent =
+        "Has completado las 5 preguntas.";
+
+    document.getElementById("opciones").style.display = "none";
+    
+let mensajeFinal = "";
+
+if (puntos === 5) {
+    mensajeFinal = "🏆 ¡EXCELENTE! Obtuviste 5/5. ¡Eres un experto en reciclaje! 🌎";
+} else if (puntos >= 3) {
+    mensajeFinal = "🌟 ¡MUY BIEN! Obtuviste " + puntos + "/5. ¡Estás aprendiendo a cuidar el planeta!";
+} else {
+    mensajeFinal = "🌱 ¡SIGUE PRACTICANDO! Obtuviste " + puntos + "/5. ¡Cada intento te ayuda a mejorar!";
+}
+
+document.getElementById("resultado-juego").textContent = mensajeFinal;
+
+    document.getElementById("resultado-juego").style.color = "green";
+    document.getElementById("siguiente").style.display = "none";
+    document.getElementById("reiniciar").style.display = "inline-block";
+}
+
+function reiniciarJuego() {
+    
+document.getElementById("progreso").style.width = "0%";
+
+    preguntaActual = 0;
+    puntos = 0;
+    respondida = false;
+
+    document.getElementById("pregunta").textContent =
+        preguntas[0].texto;
+
+    document.getElementById("numero-pregunta").textContent =
+        "Pregunta 1 de 5";
+
+    document.getElementById("puntuacion").textContent =
+        "⭐ Puntos: 0";
+
+    document.getElementById("resultado-juego").textContent = "";
+    document.getElementById("opciones").style.display = "block";
+    document.getElementById("reiniciar").style.display = "none";
+    document.getElementById("siguiente").style.display = "none";
+
+    document.querySelectorAll("#opciones button").forEach(boton => {
+        boton.disabled = false;
+    });
+}
+</script>
+
+
+</body>
+</html>
