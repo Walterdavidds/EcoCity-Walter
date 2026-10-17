@@ -88,6 +88,55 @@
         </p>
     </div>
 
+    <!-- Tacho marrón -->
+    <div class="tacho">
+        <h3>🟤 Tacho marrón</h3>
+        <img src="imagenes/tacho-marron.jpg" alt="Tacho marrón de reciclaje" width="150">
+        <h4>Residuos orgánicos</h4>
+        <p>
+            En este tacho se depositan restos
+            de frutas, verduras, cáscaras,
+            hojas secas y otros residuos
+            orgánicos. Estos materiales pueden
+            aprovecharse para elaborar compost
+            y contribuir al cuidado del
+            medio ambiente.
+        </p>
+    </div>
+
+    <!-- Tacho rojo -->
+    <div class="tacho">
+        <h3>🔴 Tacho rojo</h3>
+        <img src="imagenes/tacho-rojo.jpg" alt="Tacho rojo de reciclaje" width="150">
+        <h4>Residuos peligrosos</h4>
+        <p>
+            En este tacho se depositan residuos
+            peligrosos que requieren un manejo
+            especial, como pilas usadas,
+            baterías y determinados envases
+            contaminados con sustancias químicas.
+            Su correcta separación ayuda a
+            prevenir riesgos para las personas
+            y el medio ambiente.
+        </p>
+    </div>
+
+    <!-- Tacho negro -->
+    <div class="tacho">
+        <h3>⚫ Tacho negro</h3>
+        <img src="imagenes/tacho-negro.jpg" alt="Tacho negro de reciclaje" width="150">
+        <h4>Residuos no aprovechables</h4>
+        <p>
+            En este tacho se depositan residuos
+            que no pueden reciclarse o
+            aprovecharse fácilmente, como
+            servilletas sucias, papel higiénico
+            usado y otros desechos similares.
+            Separarlos correctamente facilita
+            el manejo de los residuos.
+        </p>
+    </div>
+
 </section>
 
 <section class="nota-educativa">
@@ -121,29 +170,22 @@
         ♻️ ¿En qué tacho colocarías una botella de plástico?
     </h3>
 
-    <p id="numero-pregunta">Pregunta 1 de 5</p>
+    <p id="numero-pregunta">Pregunta 1 de 12</p>
     
 <div class="barra-progreso">
     <div id="progreso"></div>
 </div>
 
-    <div id="opciones">
-        <button type="button" onclick="verificarRespuesta('verde')">
-            🟢 Tacho verde
-        </button>
-
-        <button type="button" onclick="verificarRespuesta('azul')">
-            🔵 Tacho azul
-        </button>
-
-        <button type="button" onclick="verificarRespuesta('amarillo')">
-            🟡 Tacho amarillo
-        </button>
-
-        <button type="button" onclick="verificarRespuesta('gris')">
-            ⚫ Tacho gris
-        </button>
-    </div>
+<div id="opciones">
+    <button type="button" onclick="verificarRespuesta('verde')">🟢 Verde</button>
+    <button type="button" onclick="verificarRespuesta('azul')">🔵 Azul</button>
+    <button type="button" onclick="verificarRespuesta('amarillo')">🟡 Amarillo</button>
+    <button type="button" onclick="verificarRespuesta('blanco')">⚪ Blanco</button>
+    <button type="button" onclick="verificarRespuesta('marron')">🟤 Marrón</button>
+    <button type="button" onclick="verificarRespuesta('gris')">⚫ Gris / Plomo</button>
+    <button type="button" onclick="verificarRespuesta('rojo')">🔴 Rojo</button>
+    <button type="button" onclick="verificarRespuesta('negro')">⚫ Negro</button>
+</div>
 
     <p id="resultado-juego" aria-live="polite"></p>
 
@@ -165,28 +207,58 @@
 
 
 <script>
+
 const preguntas = [
     {
-        texto: "♻️ ¿En qué tacho colocarías una botella de plástico?",
-        correcta: "amarillo"
+        texto: "🥤 ¿Dónde depositarías una botella de plástico limpia?",
+        correcta: "blanco"
     },
     {
-        texto: "📄 ¿En qué tacho colocarías un periódico usado?",
+        texto: "📄 ¿Dónde depositarías un periódico usado?",
         correcta: "azul"
     },
     {
-        texto: "🍾 ¿En qué tacho colocarías una botella de vidrio?",
+        texto: "🥫 ¿Dónde depositarías una lata de aluminio?",
+        correcta: "amarillo"
+    },
+    {
+        texto: "🍌 ¿Dónde depositarías una cáscara de plátano?",
+        correcta: "marron"
+    },
+    {
+        texto: "🍾 ¿Dónde depositarías una botella de vidrio?",
         correcta: "gris"
     },
     {
-        texto: "📦 ¿En qué tacho colocarías una caja de cartón limpia?",
+        texto: "🔋 ¿Dónde depositarías una pila usada?",
+        correcta: "rojo"
+    },
+    {
+        texto: "🧻 ¿Dónde depositarías papel higiénico usado?",
+        correcta: "negro"
+    },
+    {
+        texto: "📦 ¿Dónde depositarías una caja de cartón limpia?",
         correcta: "azul"
     },
     {
-        texto: "🥤 ¿En qué tacho colocarías un envase de plástico limpio?",
+        texto: "🥄 ¿Dónde depositarías un objeto metálico reciclable?",
         correcta: "amarillo"
+    },
+    {
+        texto: "🥬 ¿Dónde depositarías restos de verduras?",
+        correcta: "marron"
+    },
+    {
+        texto: "🧴 ¿Dónde depositarías un envase de plástico limpio?",
+        correcta: "blanco"
+    },
+    {
+        texto: "🫙 ¿Dónde depositarías un frasco de vidrio vacío?",
+        correcta: "gris"
     }
 ];
+
 
 let preguntaActual = 0;
 let puntos = 0;
@@ -248,29 +320,32 @@ document.getElementById("progreso").style.width =
     document.getElementById("siguiente").style.display = "none";
 }
 
+
 function finalizarJuego() {
-    
-document.getElementById("progreso").style.width = "100%";
+    document.getElementById("progreso").style.width = "100%";
 
     document.getElementById("pregunta").textContent =
         "🏆 ¡Juego terminado!";
 
     document.getElementById("numero-pregunta").textContent =
-        "Has completado las 5 preguntas.";
+        "Has completado las " + preguntas.length + " preguntas.";
 
     document.getElementById("opciones").style.display = "none";
-    
-let mensajeFinal = "";
 
-if (puntos === 5) {
-    mensajeFinal = "🏆 ¡EXCELENTE! Obtuviste 5/5. ¡Eres un experto en reciclaje! 🌎";
-} else if (puntos >= 3) {
-    mensajeFinal = "🌟 ¡MUY BIEN! Obtuviste " + puntos + "/5. ¡Estás aprendiendo a cuidar el planeta!";
-} else {
-    mensajeFinal = "🌱 ¡SIGUE PRACTICANDO! Obtuviste " + puntos + "/5. ¡Cada intento te ayuda a mejorar!";
-}
+    let mensajeFinal = "";
+    const porcentaje = (puntos / preguntas.length) * 100;
 
-document.getElementById("resultado-juego").textContent = mensajeFinal;
+    if (porcentaje === 100) {
+        mensajeFinal = "🏆 ¡EXCELENTE! ¡Eres un experto en reciclaje!";
+    } else if (porcentaje >= 60) {
+        mensajeFinal = "🌟 ¡MUY BIEN! Estás aprendiendo a cuidar el planeta.";
+    } else {
+        mensajeFinal = "🌱 ¡SIGUE PRACTICANDO! Cada intento te ayuda a mejorar.";
+    }
+
+    document.getElementById("resultado-juego").textContent =
+        "Obtuviste " + puntos + " de " + preguntas.length +
+        " puntos. " + mensajeFinal;
 
     document.getElementById("resultado-juego").style.color = "green";
     document.getElementById("siguiente").style.display = "none";
@@ -289,7 +364,7 @@ document.getElementById("progreso").style.width = "0%";
         preguntas[0].texto;
 
     document.getElementById("numero-pregunta").textContent =
-        "Pregunta 1 de 5";
+        "Pregunta 1 de " + preguntas.length;
 
     document.getElementById("puntuacion").textContent =
         "⭐ Puntos: 0";
