@@ -210,7 +210,6 @@
     <button type="button" onclick="verificarRespuesta('verde')">🟢 Verde</button>
     <button type="button" onclick="verificarRespuesta('azul')">🔵 Azul</button>
     <button type="button" onclick="verificarRespuesta('amarillo')">🟡 Amarillo</button>
-    <button type="button" onclick="verificarRespuesta('blanco')">⚪ Blanco</button>
     <button type="button" onclick="verificarRespuesta('marron')">🟤 Marrón</button>
     <button type="button" onclick="verificarRespuesta('gris')">⚫ Gris / Plomo</button>
     <button type="button" onclick="verificarRespuesta('rojo')">🔴 Rojo</button>
@@ -353,25 +352,26 @@ document.addEventListener("keydown", function(evento) {
     }
 });
 
+
 const preguntas = [
     {
         texto: "🥤 ¿Dónde depositarías una botella de plástico limpia?",
-        correcta: "blanco"
+        correcta: "amarillo"
     },
     {
         texto: "📄 ¿Dónde depositarías un periódico usado?",
         correcta: "azul"
     },
     {
-        texto: "🥫 ¿Dónde depositarías una lata de aluminio?",
-        correcta: "amarillo"
+        texto: "🥫 ¿Dónde depositarías una lata de aluminio limpia?",
+        correcta: "verde"
     },
     {
         texto: "🍌 ¿Dónde depositarías una cáscara de plátano?",
         correcta: "marron"
     },
     {
-        texto: "🍾 ¿Dónde depositarías una botella de vidrio?",
+        texto: "🍾 ¿Dónde depositarías una botella de vidrio vacía?",
         correcta: "gris"
     },
     {
@@ -387,8 +387,8 @@ const preguntas = [
         correcta: "azul"
     },
     {
-        texto: "🥄 ¿Dónde depositarías un objeto metálico reciclable?",
-        correcta: "amarillo"
+        texto: "♻️ ¿Dónde depositarías un envase reutilizable limpio cuando no hay un tacho específico?",
+        correcta: "verde"
     },
     {
         texto: "🥬 ¿Dónde depositarías restos de verduras?",
@@ -396,14 +396,13 @@ const preguntas = [
     },
     {
         texto: "🧴 ¿Dónde depositarías un envase de plástico limpio?",
-        correcta: "blanco"
+        correcta: "amarillo"
     },
     {
         texto: "🫙 ¿Dónde depositarías un frasco de vidrio vacío?",
         correcta: "gris"
     }
 ];
-
 
 let preguntaActual = 0;
 let puntos = 0;
